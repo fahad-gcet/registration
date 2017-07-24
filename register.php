@@ -12,7 +12,7 @@
 		<form method="post" action="register.php" class="form-signin">
 			<h2 class="form-signin-heading">Sign Up</h2>
 			<?php include('errors.php'); ?>
-			<input type="text" class="form-control" name="username" placeholder="Username" autofocus="" value="<?php echo $username;?>" />
+			<input type="text" class="form-control" name="username"  placeholder="Username" autofocus="" value="<?php echo $username;?>" />
 			<input type="email" class="form-control" name="email" placeholder="Email"  value="<?php echo $email;?>" />
 			<input type="password" class="form-control" name="password_1" placeholder="Password" />
 			<input type="password" class="form-control" name="password_2" placeholder="Confirm Password" />
@@ -24,6 +24,5 @@
 			</p>
 		</form>
 	</div>
-
 </body>
 </html>

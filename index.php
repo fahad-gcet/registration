@@ -1,5 +1,7 @@
 <?php 
-	session_start(); 
+	session_start();
+
+	$_SESSION['msg'] = "";
 
 	if (!isset($_SESSION['username'])) {
 		$_SESSION['msg'] = "You must log in first";

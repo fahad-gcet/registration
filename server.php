@@ -15,11 +15,25 @@ if (isset($_POST['reg_user'])) {
 	$password_1 = mysqli_real_escape_string($db, $_POST['password_1']);
 	$password_2 = mysqli_real_escape_string($db, $_POST['password_2']);
 
+	$query = "SELECT * from users where username='$username'";
+	$res = mysqli_query($db, $query);
 
-	if (empty($username)) { array_push($errors, "Username is required"); }
 	
+	if (empty($username)) { array_push($errors, "Username is required"); }
+	elseif (mysqli_num_rows($res)) {
+		array_push($errors, "Username already exists");
+	}
+	
+	$query = "SELECT * from users where email='$email'";
+	$res = mysqli_query($db, $query);
+
 
 	if (empty($email)) { array_push($errors, "Email is required"); }
+	elseif (mysqli_num_rows($res)) {
+		array_push($errors, "Email already exists");
+	}
+
+
 	if (empty($password_1)) { array_push($errors, "Password is required"); }
 
 	if ($password_1 != $password_2) {
