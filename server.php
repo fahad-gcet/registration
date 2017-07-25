@@ -7,7 +7,7 @@ $email    = "";
 $errors = array(); 
 $_SESSION['success'] = "";
 
-$db = mysqli_connect('localhost', 'fahad', 'fahad123', 'test_db');
+$db = mysqli_connect('us-cdbr-iron-east-03.cleardb.net', 'b6cc2d838a8222', '71716e01', 'heroku_321e418d5002cca');
 
 if (isset($_POST['reg_user'])) {
 	$username = mysqli_real_escape_string($db, $_POST['username']);
@@ -41,7 +41,7 @@ if (isset($_POST['reg_user'])) {
 	}
 
 	if (count($errors) == 0) {
-		$password = md5($password_1);
+		$password = sha1($password_1);
 		$query = "INSERT INTO users (username, email, password) VALUES('$username', '$email', '$password')";
 		mysqli_query($db, $query);
 
@@ -64,7 +64,7 @@ if (isset($_POST['login_user'])) {
 	}
 
 	if (count($errors) == 0) {
-		$password = md5($password);
+		$password = sha1($password);
 		$query = "SELECT * FROM users WHERE username='$username' AND password='$password'";
 		$results = mysqli_query($db, $query);
 
