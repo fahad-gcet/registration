@@ -41,7 +41,7 @@ if (isset($_POST['reg_user'])) {
 	}
 
 	if (count($errors) == 0) {
-		$password = sha1($password_1);
+		$password = md5($password_1);
 		$query = "INSERT INTO users (username, email, password) VALUES('$username', '$email', '$password')";
 		mysqli_query($db, $query);
 
@@ -64,7 +64,7 @@ if (isset($_POST['login_user'])) {
 	}
 
 	if (count($errors) == 0) {
-		$password = sha1($password);
+		$password = md5($password);
 		$query = "SELECT * FROM users WHERE username='$username' AND password='$password'";
 		$results = mysqli_query($db, $query);
 
