@@ -8,6 +8,7 @@ $errors = array();
 $_SESSION['success'] = "";
 
 $db = mysqli_connect('us-cdbr-iron-east-03.cleardb.net', 'b6cc2d838a8222', '71716e01', 'heroku_321e418d5002cca');
+//$db = mysqli_connect('localhost', 'fahad', 'fahad123', 'test_db');
 
 if (isset($_POST['reg_user'])) {
 	$username = mysqli_real_escape_string($db, $_POST['username']);

@@ -11,8 +11,8 @@
 		<form method="post" action="login.php" class="form-signin">
 			<h2 class="form-signin-heading">Log In</h2>
 			<?php include('errors.php'); ?>
-			<input type="text" class="form-control" name="username" placeholder="Username" autofocus="" />
-			<input type="password" class="form-control" name="password" placeholder="Password"/> 
+			<input type="text" class="form-control" name="username" required="true" placeholder="Username" autofocus="" />
+			<input type="password" class="form-control" name="password" required="true" placeholder="Password"/> 
 			<br>
 			<button class="btn btn-lg btn-primary btn-block" type="submit" name="login_user">Login</button> 
 			<br>

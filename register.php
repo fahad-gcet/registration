@@ -1,5 +1,5 @@
-<?php include('server.php') ?>
 <!DOCTYPE html>
+<?php include('server.php') ?>
 <html>
 <head>
 	<title>Sign Up</title>
@@ -12,10 +12,10 @@
 		<form method="post" action="register.php" class="form-signin">
 			<h2 class="form-signin-heading">Sign Up</h2>
 			<?php include('errors.php'); ?>
-			<input type="text" class="form-control" name="username"  placeholder="Username" autofocus="" value="<?php echo $username;?>" />
-			<input type="email" class="form-control" name="email" placeholder="Email"  value="<?php echo $email;?>" />
-			<input type="password" class="form-control" name="password_1" placeholder="Password" />
-			<input type="password" class="form-control" name="password_2" placeholder="Confirm Password" />
+			<input type="text" class="form-control" name="username" required="true" placeholder="Username" autofocus="" value="<?php echo $username;?>" />
+			<input type="email" class="form-control" name="email" required="true" placeholder="Email"  value="<?php echo $email;?>" />
+			<input type="password" class="form-control" name="password_1" required="true"  placeholder="Password" />
+			<input type="password" class="form-control" name="password_2" required="true" placeholder="Confirm Password" />
 			<br>
 			<button class="btn btn-lg btn-primary btn-block" type="submit" name="reg_user">Sign Up</button>  
 			<br>
