@@ -54,22 +54,26 @@ if (isset($_POST['reg_user'])) {
 
 
 if (isset($_POST['login_user'])) {
+
 	$username = mysqli_real_escape_string($db, $_POST['username']);
 	$password = mysqli_real_escape_string($db, $_POST['password']);
 
 	if (empty($username)) {
 		array_push($errors, "Username is required");
 	}
+
 	if (empty($password)) {
 		array_push($errors, "Password is required");
 	}
 
 	if (count($errors) == 0) {
 		$query = "SELECT password FROM users WHERE username='$username'";
+		$field = 'password';
 		$results = mysqli_query($db, $query);
+		$dbpass = mysqli_fetch_object($results)->$field;
+		//echo $dbpass or die();
 
-		if (mysqli_num_rows($results) == 1) {
-			if (password_verify($password, $results) {
+		if (password_verify($password, $dbpass)) {
 				$_SESSION['username'] = $username;
 				$_SESSION['success'] = "You are now logged in";
 				header('location: index.php');
@@ -77,14 +81,39 @@ if (isset($_POST['login_user'])) {
 			else {
 				array_push($errors, "Wrong username/password combination");
 			}
-		}
-		// 	$_SESSION['username'] = $username;
+	}
+}
+	
+	
+
+	
+	
+
+	// if (count($errors) == 0) {
+	// 	$query = "SELECT password FROM users WHERE username='$username'";
+	// 	$results = mysqli_query($db, $query);
+
+	// 	if (mysqli_num_rows($results) == 1) {
+	// 		if (password_verify($password, $results) {
+	// 			$_SESSION['username'] = $username;
+	// 			$_SESSION['success'] = "You are now logged in";
+	// 			header('location: index.php');
+	// 		}
+	// 		else {
+	// 			array_push($errors, "Wrong username/password combination");
+	// 		}
+		
+	// }
+
+
+
+
+	// 	$_SESSION['username'] = $username;
 		// 	$_SESSION['success'] = "You are now logged in";
 		// 	header('location: index.php');
 		// }else {
 		// 	array_push($errors, "Wrong username/password combination");
 		// }
-	}
-}
+	
 
 ?>
