@@ -42,7 +42,7 @@ if (isset($_POST['reg_user'])) {
 	}
 
 	if (count($errors) == 0) {
-		$password = password_hash($password_1);
+		$password = password_hash($password_1, PASSWORD_BCRYPT);
 		$query = "INSERT INTO users (username, email, password) VALUES('$username', '$email', '$password')";
 		mysqli_query($db, $query);
 
