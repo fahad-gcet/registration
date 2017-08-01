@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <?php include('server.php') ?>
+<?php include('navbar.php') ?>
 <html>
 <head>
 	<title>Sign Up</title>

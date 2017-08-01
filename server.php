@@ -19,8 +19,8 @@ else
 }
 
 
-//$db = mysqli_connect('us-cdbr-iron-east-03.cleardb.net', 'b6cc2d838a8222', '71716e01', 'heroku_321e418d5002cca');
-$db = mysqli_connect('localhost', 'fahad', 'fahad123', 'test_db');
+$db = mysqli_connect('us-cdbr-iron-east-03.cleardb.net', 'b6cc2d838a8222', '71716e01', 'heroku_321e418d5002cca');
+//$db = mysqli_connect('localhost', 'fahad', 'fahad123', 'test_db');
 
 if (isset($_POST['reg_user'])) {
 	$username = mysqli_real_escape_string($db, $_POST['username']);
@@ -110,12 +110,18 @@ if (isset($_POST['login_user'])) {
 
 
 if (isset($_POST['edit_user'])) {
-	$username = $_SESSION['username'];
+	if(!($_SESSION['token'] == $_POST['token'])) {
+  die('Invalid CSRF token');
+}
+  else {
+  	$username = $_SESSION['username'];
 	$mob_no = mysqli_real_escape_string($db, $_POST['mob_no']);
 	$dob = mysqli_real_escape_string($db, $_POST['dob']);
 	$query = "UPDATE users SET mob_no= '$mob_no', dob= '$dob' WHERE username='$username'";
 	mysqli_query($db, $query);
 	header('location: index.php');
+  }
+	
 }
 
 

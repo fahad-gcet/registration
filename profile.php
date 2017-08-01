@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <?php include('server.php') ?>
+<?php include('navbar.php') ?>
 
 <?php
 	if (!isset($_SESSION['username'])) {
@@ -19,9 +20,9 @@
 		<form method="post" action="register.php" class="form-signin">
 			<h2 class="form-signin-heading">Edit Profile</h2>
 			<?php include('errors.php'); ?>
-			<input type="number" class="form-control" name="mob_no"  placeholder="Mobile Number" />
-			<input type="date" class="form-control" name="dob"  placeholder="Date Of Birth" />
-			<!-- <input type="hidden" name="token" value="<?php echo $token; ?>"> -->
+			<input type="number" class="form-control" name="mob_no"  placeholder="Mobile Number" required="true" />
+			<input type="date" class="form-control" name="dob"  placeholder="Date Of Birth" required="true" />
+			<input type="hidden" name="token" value="<?php echo $token; ?>">
 			<br>
 			<button class="btn btn-lg btn-primary btn-block" type="submit" name="edit_user">Edit Profile</button>  
 		</form>
