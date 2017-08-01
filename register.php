@@ -16,6 +16,7 @@
 			<input type="email" class="form-control" name="email" required="true" placeholder="Email"  value="<?php echo $email;?>" />
 			<input type="password" class="form-control" name="password_1" required="true"  placeholder="Password" />
 			<input type="password" class="form-control" name="password_2" required="true" placeholder="Confirm Password" />
+			<input type="hidden" name="token" value="<?php echo $token; ?>">
 			<br>
 			<button class="btn btn-lg btn-primary btn-block" type="submit" name="reg_user">Sign Up</button>  
 			<br>

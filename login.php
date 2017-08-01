@@ -13,6 +13,7 @@
 			<?php include('errors.php'); ?>
 			<input type="text" class="form-control" name="username" required="true" placeholder="Username" autofocus="" />
 			<input type="password" class="form-control" name="password" required="true" placeholder="Password"/> 
+			<input type="hidden" name="token" value="<?php echo $token; ?>">
 			<br>
 			<button class="btn btn-lg btn-primary btn-block" type="submit" name="login_user">Login</button> 
 			<br>

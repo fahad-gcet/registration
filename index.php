@@ -11,6 +11,7 @@
 	if (isset($_GET['logout'])) {
 		session_destroy();
 		unset($_SESSION['username']);
+		unset($_SESSION['token']);
 		header("location: login.php");
 	}
 
@@ -41,6 +42,8 @@
 
 		<?php  if (isset($_SESSION['username'])) : ?>
 			<p>Welcome <strong><?php echo $_SESSION['username']; ?></strong></p>
+			<p> <a href="viewProfile.php" class="btn btn-primary btn-lg">View Profile</a> </p>
+			<p> <a href="profile.php" class="btn btn-primary btn-lg">Edit Profile</a> </p>
 			<p> <a href="index.php?logout='1'" class="btn btn-primary btn-lg">Logout</a> </p>
 		<?php endif ?>
 	</div>	
